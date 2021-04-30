@@ -2,6 +2,7 @@ package Vistas;
 
 import java.awt.event.KeyEvent;
 import java.util.*;
+import javax.swing.JOptionPane;
 import weber_tp7.Alumno;
 import weber_tp7.Materia;
 
@@ -16,6 +17,7 @@ public class viewFormInscripcion extends javax.swing.JInternalFrame {
         this.materias=materias;
         llenarJcbalumnos();
         llenarJcbmaterias();
+        jcbAlumnos.requestFocus();
     }
 
     private void llenarJcbalumnos(){
@@ -46,10 +48,13 @@ public class viewFormInscripcion extends javax.swing.JInternalFrame {
         jbSalir = new javax.swing.JButton();
         jcbMaterias = new javax.swing.JComboBox<>();
         jcbAlumnos = new javax.swing.JComboBox<>();
+        jlAlumno1 = new javax.swing.JLabel();
+        jlAlumno2 = new javax.swing.JLabel();
 
         setTitle("Formulario de inscripción");
         setToolTipText("");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setName(""); // NOI18N
 
         jbInscribir.setBackground(new java.awt.Color(0, 255, 46));
         jbInscribir.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
@@ -110,6 +115,18 @@ public class viewFormInscripcion extends javax.swing.JInternalFrame {
             }
         });
 
+        jlAlumno1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        jlAlumno1.setForeground(new java.awt.Color(102, 102, 102));
+        jlAlumno1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlAlumno1.setText("(Apellido, Nombre, N° de legajo)");
+        jlAlumno1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jlAlumno2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        jlAlumno2.setForeground(new java.awt.Color(102, 102, 102));
+        jlAlumno2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlAlumno2.setText("(Materia, Año, ID de materia)");
+        jlAlumno2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,14 +137,16 @@ public class viewFormInscripcion extends javax.swing.JInternalFrame {
                     .addComponent(jbSalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbInscribir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jlTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jlMateria, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                             .addComponent(jlAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jcbAlumnos, 0, 278, Short.MAX_VALUE)
-                            .addComponent(jcbMaterias, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jlAlumno2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jcbAlumnos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jcbMaterias, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jlAlumno1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -135,15 +154,19 @@ public class viewFormInscripcion extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jlTitulo)
-                .addGap(45, 45, 45)
+                .addGap(23, 23, 23)
+                .addComponent(jlAlumno1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlAlumno)
                     .addComponent(jcbAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
+                .addComponent(jlAlumno2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlMateria)
                     .addComponent(jcbMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(jbInscribir, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -154,9 +177,14 @@ public class viewFormInscripcion extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInscribirActionPerformed
-        Alumno aInscribir = (Alumno) jcbAlumnos.getSelectedItem();
-        Materia mInscribir = (Materia) jcbMaterias.getSelectedItem();
-        aInscribir.agregarMateria(mInscribir);
+        try{
+            Alumno aInscribir = (Alumno) jcbAlumnos.getSelectedItem();
+            Materia mInscribir = (Materia) jcbMaterias.getSelectedItem();
+            aInscribir.agregarMateria(mInscribir);
+            
+        } catch (NullPointerException npe){
+            JOptionPane.showMessageDialog(this,"ERROR!\nPrimero agregue Alumnos y Materias");
+        }
     }//GEN-LAST:event_jbInscribirActionPerformed
 
     private void jbInscribirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jbInscribirKeyPressed
@@ -190,6 +218,8 @@ public class viewFormInscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<Alumno> jcbAlumnos;
     private javax.swing.JComboBox<Materia> jcbMaterias;
     private javax.swing.JLabel jlAlumno;
+    private javax.swing.JLabel jlAlumno1;
+    private javax.swing.JLabel jlAlumno2;
     private javax.swing.JLabel jlMateria;
     private javax.swing.JLabel jlTitulo;
     // End of variables declaration//GEN-END:variables

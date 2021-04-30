@@ -12,6 +12,7 @@ public class viewFormMaterias extends javax.swing.JInternalFrame {
     public viewFormMaterias(HashSet <Materia> materias) {
         initComponents();
         this.materias=materias;
+        jtId.requestFocus();
     }
 
     public void habilitarAgregar(){
@@ -141,7 +142,7 @@ public class viewFormMaterias extends javax.swing.JInternalFrame {
                     .addComponent(jlTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jbNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                         .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jlId, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -163,7 +164,7 @@ public class viewFormMaterias extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
                 .addComponent(jlTitulo)
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -183,7 +184,7 @@ public class viewFormMaterias extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbNuevo)
                     .addComponent(jbSalir))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jtAnio, jtId, jtNombre});
@@ -221,14 +222,14 @@ public class viewFormMaterias extends javax.swing.JInternalFrame {
             }
             
             if(yaExiste){
-                JOptionPane.showMessageDialog(this,"Materia ya existente");
+                JOptionPane.showMessageDialog(this,"ERROR!\nMateria ya existente");
             } else {
                 materias.add(materia);
-                JOptionPane.showMessageDialog(this,"Materia agregada exitosamente");
+                JOptionPane.showMessageDialog(this,"EXITO!\nMateria creada correctamente");
             }
             
         } catch (NumberFormatException nfe){
-            JOptionPane.showMessageDialog(this, "ID y/o Año deben ser numeros enteros");
+            JOptionPane.showMessageDialog(this, "ERROR!\nID y Año deben ser numeros enteros");
             jtId.requestFocus();
         }
     }//GEN-LAST:event_jbAgregarActionPerformed

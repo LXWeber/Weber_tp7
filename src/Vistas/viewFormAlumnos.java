@@ -12,11 +12,11 @@ public class viewFormAlumnos extends javax.swing.JInternalFrame {
     public viewFormAlumnos(HashSet <Alumno> alumnos) {
         initComponents();
         this.alumnos=alumnos;
+        jtLegajo.requestFocus();
     }
 
     public void habilitarAgregar(){
-        if(!jtLegajo.getText().isEmpty() && !jtNombre.getText().isEmpty()
-                && !jtApellido.getText().isEmpty()){
+        if(!jtLegajo.getText().isEmpty() && !jtNombre.getText().isEmpty() && !jtApellido.getText().isEmpty()){
             jbAlta.setEnabled(true);
         } else {
             jbAlta.setEnabled(false);
@@ -43,7 +43,6 @@ public class viewFormAlumnos extends javax.swing.JInternalFrame {
         jbNuevo = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
 
-        setClosable(true);
         setTitle("Formulario de Alumnos");
 
         jlTitulo.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -52,13 +51,13 @@ public class viewFormAlumnos extends javax.swing.JInternalFrame {
         jlTitulo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         jlLegajo.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jlLegajo.setText("Legajo:");
+        jlLegajo.setText("N° de Legajo:");
 
         jlApellido.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jlApellido.setText("Apellido:");
+        jlApellido.setText("Apellido del alumno:");
 
         jlNombre.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jlNombre.setText("Nombre:");
+        jlNombre.setText("Nombre del alumno:");
 
         jtLegajo.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jtLegajo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
@@ -142,33 +141,33 @@ public class viewFormAlumnos extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jbNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlApellido)
-                            .addComponent(jlNombre)
-                            .addComponent(jlLegajo, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtNombre)
-                            .addComponent(jtApellido)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jtLegajo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbAlta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jlTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jbNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                        .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jlApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                            .addComponent(jlNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jlLegajo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtNombre, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jtApellido, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jtLegajo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
                 .addComponent(jlTitulo)
-                .addGap(29, 29, 29)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlLegajo)
                     .addComponent(jtLegajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -186,7 +185,7 @@ public class viewFormAlumnos extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jtApellido, jtLegajo, jtNombre});
@@ -220,14 +219,14 @@ public class viewFormAlumnos extends javax.swing.JInternalFrame {
             }
             
             if(yaExiste){
-                JOptionPane.showMessageDialog(this,"Alumno ya existente");
+                JOptionPane.showMessageDialog(this,"ERROR!\nAlumno ya existente");
             } else {
                 alumnos.add(alumno);
-                JOptionPane.showMessageDialog(this,"Alta de alumno exitosa");
+                JOptionPane.showMessageDialog(this,"Exito!\nAlta de alumno realizada");
             }
             
         } catch (NumberFormatException nfe){
-            JOptionPane.showMessageDialog(this, "El Legajo debe ser un numero entero");
+            JOptionPane.showMessageDialog(this,"ERROR!\nEl Legajo debe ser un numero entero");
             jtLegajo.requestFocus();
         }
     }//GEN-LAST:event_jbAltaActionPerformed

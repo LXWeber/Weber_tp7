@@ -17,9 +17,9 @@ public class Alumno {
     
     public void agregarMateria(Materia materia){
         if(materias.add(materia)){
-            JOptionPane.showMessageDialog(null, "Materia agregada exitosamente");
+            JOptionPane.showMessageDialog(null, "EXITO!\nAlumno inscripto a "+materia.getNombre());
         } else {
-            JOptionPane.showMessageDialog(null,"Materia duplicada");
+            JOptionPane.showMessageDialog(null,"ERROR!\nAlumno ya inscripto a\n"+materia);
         }
         
     }
@@ -78,7 +78,7 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return "Legajo: " + legajo + " " + apellido + " " + nombre;
+        return apellido+", "+nombre+", "+legajo;
     }
     
 }
